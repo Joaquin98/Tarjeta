@@ -9,7 +9,7 @@ class Tarjeta implements Int_Tarjeta{
 
 	public function __construct (){
 		$this->saldo = 0;
-		$this->porcentaje = 1;
+		$this->porcentaje = 33;
 	}
 
 	public function pagar(Transporte $transporte, $fecha_y_hora){
