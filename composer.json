@@ -1,0 +1,12 @@
+{
+    "name": "poli/testing",
+    "require": {
+        "phpunit/phpunit": "^5.5",
+        "fzaninotto/faker": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Poli\\Tarjeta\\": "src"
+        }
+    }
+}
