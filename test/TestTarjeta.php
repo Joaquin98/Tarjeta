@@ -3,11 +3,8 @@
 
 namespace Poli\Tarjeta;
 
-use PHPUnit\Framework\TestCase;
 
-
-
-class TarjetaTest extends TestCase {
+class TarjetaTest extends \PHPUnit_Framework_TestCase {
 
   protected $tarjeta,$colectivoA,$colectivoB;	
 
