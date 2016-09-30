@@ -6,13 +6,15 @@ namespace Poli\Tarjeta;
 
 class TarjetaTest extends \PHPUnit_Framework_TestCase {
 
-  protected $tarjeta,$colectivoA,$colectivoB,$medio;	
+  protected $tarjeta,$colectivoA,$colectivoB,$medio,$bici;	
 
   public function setup(){
 			$this->tarjeta = new Tarjeta();
       $this->medio = new Medio();
 			$this->colectivoA = new Colectivo("144 Negro", "Rosario Bus");
   		$this->colectivoB = new Colectivo("135", "Rosario Bus");
+      $this->biciA = new Bicicleta("323");
+      $this->biciB = new Bicicleta("111");
   }	
 
   public function testCargaSaldo() {
@@ -72,6 +74,26 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
     $this->medio->pagar($this->colectivoB, "2016/06/30 23:58");
     $this->assertEquals($this->medio->saldo(), 312, "Si tengo 312 y pago un colectivo sin transbordo deberia tener finalmente 312");
  
+  }
+
+  public function testPagarBici() {
+    $this->tarjeta->recargar(272);
+    $this->tarjeta->pagar($this->biciA, "2016/06/30 22:54");
+    $this->assertEquals($this->tarjeta->saldo(), 308, "Si tengo 320 y pago una bici deberia tener finalmente 308");
+  }
+
+  public function testPagarDosBiciUnDia() {
+    $this->tarjeta->recargar(272);
+    $this->tarjeta->pagar($this->biciA, "2016/06/30 10:54");
+    $this->tarjeta->pagar($this->biciB, "2016/06/30 22:54");
+    $this->assertEquals($this->tarjeta->saldo(), 308, "Si tengo 320 y pago una bici deberia tener finalmente 308");
+  }
+
+  public function testPagarDosBiciDosDias() {
+    $this->tarjeta->recargar(272);
+    $this->tarjeta->pagar($this->biciA, "2016/06/27 10:54");
+    $this->tarjeta->pagar($this->biciB, "2016/06/30 22:54");
+    $this->assertEquals($this->tarjeta->saldo(), 296, "Si tengo 320 y pago una bici deberia tener finalmente 308");
   }
 
 }
