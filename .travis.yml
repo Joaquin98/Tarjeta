@@ -6,15 +6,5 @@ before_script:
   - wget http://getcomposer.org/composer.phar
   - php composer.phar install
   
-install:
-  - composer update --prefer-source
-
-script:
-  - mkdir -p build/logs
-  - php vendor/bin/phpunit --coverage-clover=build/logs/clover.xml tests
-
-after_script:
-  - php vendor/bin/coveralls -v
-
 script:
   - phpunit
