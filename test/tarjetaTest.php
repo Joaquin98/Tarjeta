@@ -63,14 +63,14 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
     $this->medio->recargar(272);
     $this->medio->pagar($this->colectivoA, "2016/06/30 22:54");
     $this->medio->pagar($this->colectivoB, "2016/06/30 23:50");
-    $this->assertEquals($this->medio->saldo(), 309.36, "Si tengo 312 y pago un colectivo con transbordo deberia tener finalmente 310.68");
+    $this->assertEquals($this->medio->saldo(), 310.32, "Si tengo 312 y pago un colectivo con transbordo deberia tener finalmente 310.68");
   }
 
   public function testmedioNoTransbordo() {
     $this->medio->recargar(272);
     $this->medio->pagar($this->colectivoA, "2016/06/28 10:50");
     $this->medio->pagar($this->colectivoB, "2016/06/30 23:58");
-    $this->assertEquals($this->medio->saldo(), 304, "Si tengo 312 y pago un colectivo sin transbordo deberia tener finalmente 308");
+    $this->assertEquals($this->medio->saldo(), 308, "Si tengo 312 y pago un colectivo sin transbordo deberia tener finalmente 308");
  
   }
 
