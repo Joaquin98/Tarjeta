@@ -96,14 +96,6 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
     $this->assertEquals($this->tarjeta->saldo(), 296, "Si tengo 320 y pago una bici deberia tener finalmente 308");
   }
 
-  public function testViaje(){
-  	$this->tarjeta->recargar(272);
-  	$this->tarjeta->pagar($this->colectivoA, "2016/06/30 22:50");
-  	$this->assertEquals($this->tarjeta->viajes["2016/06/30 22:50"]->getCosto(), 8, "Costo Viaje");
-  	$this->assertEquals($this->tarjeta->viajes["2016/06/30 22:50"]->getHorario(), "2016/06/30 22:50" , "Fechas");
-  	$this->assertEquals($this->tarjeta->viajes["2016/06/30 22:50"]->getTipo(), 1, "Tipo de Viaje");
-  }
-
 }
 
 ?>
