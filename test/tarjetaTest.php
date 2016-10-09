@@ -11,7 +11,7 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
   public function setup(){
 			$this->tarjeta = new Tarjeta();
       $this->medio = new Medio();
-			$this->colectivoA = new Colectivo("144 Negro", "Rosario Bus");
+		$this->colectivoA = new Colectivo("144 Negro", "Rosario Bus");
   		$this->colectivoB = new Colectivo("135", "Rosario Bus");
       $this->biciA = new Bicicleta("323");
       $this->biciB = new Bicicleta("111");
@@ -99,7 +99,6 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
   public function testViaje(){
   	$this->tarjeta->recargar(272);
   	$this->tarjeta->pagar($this->colectivoA, "2016/06/30 22:50");
-  	$this->assertEquals(  	$this->colectivoA->getNombreEmpresa(), "Rosario Bus" , "Nombre Empresa");
   	$this->assertEquals($this->tarjeta->viajes["2016/06/30 22:50"]->getCosto(), 8, "Costo Viaje");
   	$this->assertEquals($this->tarjeta->viajes["2016/06/30 22:50"]->getHorario(), "2016/06/30 22:50" , "Fechas");
   	$this->assertEquals($this->tarjeta->viajes["2016/06/30 22:50"]->getTipo(), 1, "Tipo de Viaje");

@@ -20,9 +20,9 @@ class Tarjeta implements Int_Tarjeta{
 		$aux2 = strtotime($this->ultimafecha);
 
 		if($this->ultimafecha == 0 || ($aux1-$aux2>3600) || $this->viajes[$this->ultimafecha]->getTransporte()->getId() == $transporte->getid()){ 
-			$costo = $transporte->getCosto()*$this->porcentaje;
+			$costo = ($transporte->getCosto()*$this->porcentaje);
 		} else {
-			$costo = $transporte->getCostoTrans()*$this->porcentaje;
+			$costo = ($transporte->getCostoTrans()*$this->porcentaje);
 		}
 
 
