@@ -5,7 +5,8 @@ namespace Poli\Tarjeta;
 
 class Tarjeta implements Int_Tarjeta{
 	protected $saldo,$porcentaje;
-	protected $viajes,$ultimafecha=0,$ultimabicipaga=0;
+	protected $ultimafecha=0,$ultimabicipaga=0;
+	public $viajes;
 
 	public function __construct (){
 		$this->saldo = 0;
